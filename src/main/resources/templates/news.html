@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<style>
+    body
+    {
+        width: 100%;
+        height: 50px;
+        margin:-20px 0px 0px 0px;
+    }
+    button
+    {
+        width: 200px;
+        margin: 1px;
+    }
+    h2,p
+    {
+        font-family: Arial;
+        margin: 20px 5px -20px 20px;
+        color:white;
+    }
+    input
+    {
+        margin-top: -15px;
+    }
+    table
+    {
+        width: 700px;
+        margin: auto;
+    }
+    td
+    {
+        background-color: white;
+        border: 1px solid lightgrey;
+        border-radius: 6%;
+        text-align: center;
+        font-family: Calibri;
+    }
+    th
+    {
+        font-family: Calibri;
+        padding: 5px 0;
+        background-color: black;
+        color: #ffc107;
+        border-radius: 3px;
+    }
+    form
+    {
+        margin-right: 20px;
+        text-align: end;
+    }
+    .header
+    {
+        padding: 0 0 5px 0;
+        margin: 0px;
+        background:#1C1C1CFF;
+    }
+    .search
+    {
+        color: #ced4da;
+        background-color: black;
+        border-color: gray;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 5px;
+    }
+    .btn
+    {
+        background-color: #ffc107;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    tr
+    {
+        border: 1px solid #8e8e8e;
+        background-color: #e0e0e0;
+    }
+    .test
+    {
+        margin-top: 10px;
+    }
+</style>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body bgcolor=#f5f5f5>
+<div class="header">
+    <h2>Parser Task</h2>
+    <p>Yandex News</p>
+    <form th:action="@{/db}">
+        <input class="search" type="text" name="keyword" placeholder="Search..."/>
+        <input type="submit" value="Search" class="btn"/>
+    </form>
+</div>
+<table class="test" cellpadding="2px">
+    <tr>
+        <th>Заголовок</th>
+        <th>Новости</th>
+    </tr>
+    <div th:each="el : ${news}">
+        <tr>
+            <td th:text="${el.title}"/>
+            <td th:text="${el.newsbody}"/>
+        </tr>
+    </div>
+</table>
+</body>
+</html>
